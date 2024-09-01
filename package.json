@@ -2,5 +2,9 @@
   "name": "mdb-standard-app",
   "version": "7.3.2",
   "homepage": "https://mdbootstrap.com/docs/standard/",
-  "license": "SEE LICENSE IN <License.txt>"
+  "license": "SEE LICENSE IN <License.txt>",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "mdb-standard-app": "file:"
+  }
 }
