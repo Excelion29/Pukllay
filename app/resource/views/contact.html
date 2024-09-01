@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<div id="header-container"></div>
+
+<body style="display: none;">
+
+  <div id="navbar-container"></div>
+
+  <div id="footer-container"></div>
+
+  <script>
+    
+    // Function to load external HTML content
+    function loadHTML(filename) {
+      return new Promise((resolve, reject) => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState === 4) {
+            if (this.status === 200) {
+              resolve(this.responseText);
+            } else {
+              reject(new Error('Error al cargar ' + filename));
+            }
+          }
+        };
+        xhttp.open("GET", filename, true);
+        xhttp.send();
+      });
+    }
+
+    Promise.all([
+      loadHTML("/app/resource/views/layouts/header.html"),
+      loadHTML("/app/resource/views/layouts/navbars/navs/guest.html"),
+      loadHTML("/app/resource/views/layouts/footer.html")
+    ])
+    .then(([header, navbar, footer]) => {
+      document.getElementById("header-container").innerHTML = header;
+      document.getElementById("navbar-container").innerHTML = navbar;
+      document.getElementById("footer-container").innerHTML = footer;
+    })
+    .then(() => {
+      document.body.style.display = "block";
+    })
+    .catch(error => {
+      console.error('Error al cargar las partes de la página:', error);
+    });
+  </script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+  <script type="text/javascript" src="/app/public/js/mdb.min.js"></script>
+  <script type="text/javascript" src="/app/public/js/script.js"></script>
+
+</body>
+</html>
