@@ -35,3 +35,9 @@
 .custom-btn:hover {
   background-color: #0056b3;
 }
+
+.payment-logo {
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+}
