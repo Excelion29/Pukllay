@@ -6,3 +6,38 @@
 .icon-hover:hover i {
   color: #3b71ca !important;
 }
+
+.custom-hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.custom-hover:hover {
+  color: #ffffff !important;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6a0dad, #d4af37, #4c7f50, #bc5f3d, #3a4d6f) !important;
+}
+
+.custom-input {
+  border: 2px solid #ced4da;
+  border-radius: 0.375rem 0 0 0.375rem;
+  padding: 0.75rem;
+}
+
+.custom-btn {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0 50px 50px 0;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+}
+
+.custom-btn:hover {
+  background-color: #0056b3;
+}
+
+.payment-logo {
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+}
