@@ -1,3 +1,13 @@
+
+:root {
+  --custom-color: #9e2b30;
+}
+
+
+h2 .title-red{
+  color: var(--custom-color) !important;
+}
+
 .icon-hover:hover {
   border-color: #3b71ca !important;
   background-color: white !important;
