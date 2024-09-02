@@ -1,10 +1,9 @@
 :root {
   --custom-red-100: #9e2b30;
   --custom-yellow-100: #c7970a;
-  --custom-purple-100: #7a1045:
+  --custom-purple-100: #7a1045;
+  --custom-green-100: #596a33;
 }
-
-
 
 /* h2 {
 	color: #000;
@@ -56,6 +55,10 @@ h2.title-gray{
 
 h2.title-purple{
   color: var(--custom-purple-100);
+}
+
+h2.title-green{
+  color: var(--custom-green-100);
 }
 
 h2.title-red::after,h2.title-yellow::after, h2.title-purple::after {
