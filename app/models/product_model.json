@@ -1,0 +1,38 @@
+[
+    {
+        "productTitle" : "T-shirts with multiple colors, for men and lady",
+        "productDescription" : "T-shirts with multiple colors, for men and lady",
+        "productImage" : "https://mdbootstrap.com/img/bootstrap-ecommerce/items/10.webp",
+        "productRealPrice" : "49.99",
+        "productPrice" : "34.50",
+        "productDiscount" : "30.98",
+        "productDiscountType" : "percentage"
+    },
+    {
+        "productTitle" : "T-shirts with multiple colors, for men and lady",
+        "productDescription" : "T-shirts with multiple colors, for men and lady",
+        "productImage" : "https://mdbootstrap.com/img/bootstrap-ecommerce/items/10.webp",
+        "productRealPrice" : "49.99",
+        "productPrice" : "34.50",
+        "productDiscount" : "30.98",
+        "productDiscountType" : "percentage"
+    },
+    {
+        "productTitle" : "T-shirts with multiple colors, for men and lady",
+        "productDescription" : "T-shirts with multiple colors, for men and lady",
+        "productImage" : "https://mdbootstrap.com/img/bootstrap-ecommerce/items/10.webp",
+        "productRealPrice" : "49.99",
+        "productPrice" : "34.50",
+        "productDiscount" : null,
+        "productDiscountType" : "percentage"
+    },
+    {
+        "productTitle" : "T-shirts with multiple colors, for men and lady",
+        "productDescription" : "T-shirts with multiple colors, for men and lady",
+        "productImage" : "https://mdbootstrap.com/img/bootstrap-ecommerce/items/10.webp",
+        "productRealPrice" : "49.99",
+        "productPrice" : "34.50",
+        "productDiscount" : "30.98",
+        "productDiscountType" : "percentage"
+    }
+]
