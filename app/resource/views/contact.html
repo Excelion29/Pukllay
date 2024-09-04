@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <div id="header-container"></div>
-  
+
 <body style="display: none;">
-  
+
   <div id="navbar-container"></div>
 
   <div class="content">
+    <section class="contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 contact-info">
+            <h4>Información de Contacto</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Perú, Lima, LIM 15001</p>
+            <p><i class="fas fa-phone"></i> +51 982 248 111</p>
+            <p><i class="fas fa-clock"></i> <span id="current-time"></span></p>
+          </div>
+          <div class="col-md-6">
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre">
+              </div>
+              <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingrese su email">
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Ingrese su mensaje"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  </div>  
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}`;
+      document.getElementById('current-time').textContent = timeString;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+
+
 
   <div id="footer-container"></div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}`;
+      document.getElementById('current-time').textContent = timeString;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
 
   <script>
     // Function to load external HTML content
     function loadHTML(filename) {
       return new Promise((resolve, reject) => {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
           if (this.readyState === 4) {
             if (this.status === 200) {
               resolve(this.responseText);
@@ -37,17 +93,18 @@
       loadHTML("/app/resource/views/layouts/navbars/navs/guest.html"),
       loadHTML("/app/resource/views/layouts/footer.html")
     ])
-    .then(([header, navbar, footer]) => {
-      document.getElementById("header-container").innerHTML = header;
-      document.getElementById("navbar-container").innerHTML = navbar;
-      document.getElementById("footer-container").innerHTML = footer;
-    })
-    .then(() => {
-      document.body.style.display = "block";
-    })
-    .catch(error => {
-      console.error('Error al cargar las partes de la página:', error);
-    });
+      .then(([header, navbar, footer]) => {
+        document.getElementById("header-container").innerHTML = header;
+        document.getElementById("navbar-container").innerHTML = navbar;
+        document.getElementById("footer-container").innerHTML = footer;
+      })
+      .then(() => {
+        document.body.style.display = "block";
+      })
+      .catch(error => {
+        console.error('Error al cargar las partes de la página:', error);
+      });
   </script>
 </body>
+
 </html>
