@@ -222,3 +222,26 @@ h2.title-red:hover:after,h2.title-yellow:hover:after {
 }
 
 /*-- Category  ---*/
+
+/*--Nosotros--*/
+
+#nosotros {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#nosotros h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#nosotros p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+#nosotros img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
