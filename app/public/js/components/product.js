@@ -22,61 +22,77 @@ async function loadProduct(idcontent) {
 }
 
 function createProductCard(product) {
-    const colDiv = document.createElement('div');
-    colDiv.className = 'col-lg-4 col-md-6 col-sm-6 d-flex';
+    const article = document.createElement('article');
+    article.classList.add('col-lg-3', 'col-md-6', 'col-sm-6', 'd-flex', 'product-design');
+    
+    const card = document.createElement('div');
+    card.classList.add('card', 'w-100', 'my-2', 'shadow-2-strong');
 
-    const cardDiv = document.createElement('div');
-    cardDiv.className = 'card w-100 my-2 shadow-2-strong';
-
+    // Crear la imagen
     const img = document.createElement('img');
     img.src = product.productImage;
-    img.className = 'card-img-top';
-    cardDiv.appendChild(img);
+    img.classList.add('card-img-top');
+    img.style.aspectRatio = '1 / 1';
 
-    const cardBodyDiv = document.createElement('div');
-    cardBodyDiv.className = 'card-body d-flex flex-column';
+    // Crear el cuerpo de la tarjeta
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body', 'd-flex', 'flex-column');
 
-    const priceRowDiv = document.createElement('div');
-    priceRowDiv.className = 'd-flex flex-row';
+    // Crear la línea de separación
+    const hr = document.createElement('hr');
 
-    const currentPrice = document.createElement('h5');
-    currentPrice.className = 'mb-1 me-1';
-    currentPrice.textContent = `${product.productRealPrice}`;
+    // Crear el título
+    const cardTitle = document.createElement('h5');
+    cardTitle.classList.add('card-title', 'text-black');
+    cardTitle.textContent = product.productDescription;
 
-    priceRowDiv.appendChild(currentPrice);
-    if (product.productDiscount != null) {
-        const originalPrice = document.createElement('span');
-        originalPrice.className = 'text-danger';
-        originalPrice.innerHTML = `<s>${product.productPrice}</s>`;
-        priceRowDiv.appendChild(originalPrice);
+    // Crear el precio
+    const cardText = document.createElement('p');
+    cardText.classList.add('card-text', 'h5', 'mt-2');
+    cardText.textContent = `${product.productRealPrice}`;
+
+    // Crear el pie de la tarjeta
+    const cardFooter = document.createElement('div');
+    cardFooter.classList.add('card-footer', 'd-flex', 'pt-2', 'px-0', 'pb-0', 'mt-auto');
+
+    // Crear el botón "Agregar al carro"
+    const addToCartButton = document.createElement('a');
+    addToCartButton.href = '#!';
+    addToCartButton.classList.add('btn', 'btn-success', 'shadow-0', 'me-1', 'p-2', 'text-white', 'align-content-center');
+    addToCartButton.style.width = '60%';
+    addToCartButton.innerHTML = '<i class="fa-solid fa-cart-shopping"></i><br><span>Agregar al carro</span>';
+
+    // priceRowDiv.appendChild(currentPrice);
+    // if (product.productDiscount != null) {
+    //     const originalPrice = document.createElement('span');
+    //     originalPrice.className = 'text-danger';
+    //     originalPrice.innerHTML = `<s>${product.productPrice}</s>`;
+    //     priceRowDiv.appendChild(originalPrice);
         
-    }
+    // }
     
-    const description = document.createElement('p');
-    description.className = 'card-text';
-    description.textContent = `${product.productDescription}`;
+    // Crear el botón "Comprar"
+    const buyButton = document.createElement('a');
+    buyButton.href = '#!';
+    buyButton.classList.add('btn', 'btn-success', 'shadow-0', 'me-1', 'p-2', 'text-white', 'align-content-center');
+    buyButton.style.width = '40%';
+    buyButton.innerHTML = '<i class="fa-solid fa-credit-card"></i><br><span>Comprar</span>';
 
-    const footerDiv = document.createElement('div');
-    footerDiv.className = 'card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto';
+    // Añadir los botones al pie de la tarjeta
+    cardFooter.appendChild(addToCartButton);
+    cardFooter.appendChild(buyButton);
 
-    const addToCartBtn = document.createElement('a');
-    addToCartBtn.href = '#!';
-    addToCartBtn.className = 'btn btn-primary shadow-0 me-1';
-    addToCartBtn.textContent = 'Add to cart';
+    // Añadir elementos al cuerpo de la tarjeta
+    cardBody.appendChild(hr);
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+    cardBody.appendChild(cardFooter);
 
-    const favoriteBtn = document.createElement('a');
-    favoriteBtn.href = '#!';
-    favoriteBtn.className = 'btn btn-light border icon-hover px-2 pt-2';
-    favoriteBtn.innerHTML = '<i class="fas fa-heart fa-lg text-secondary px-1"></i>';
+    // Añadir la imagen y el cuerpo a la tarjeta
+    card.appendChild(img);
+    card.appendChild(cardBody);
 
-    footerDiv.appendChild(addToCartBtn);
-    footerDiv.appendChild(favoriteBtn);
-
-    cardBodyDiv.appendChild(priceRowDiv);
-    cardBodyDiv.appendChild(description);
-    cardBodyDiv.appendChild(footerDiv);
-
-    cardDiv.appendChild(cardBodyDiv);
-    colDiv.appendChild(cardDiv);
-    return colDiv;
+    // Añadir la tarjeta al artículo
+    article.appendChild(card);
+    return article;
 }
