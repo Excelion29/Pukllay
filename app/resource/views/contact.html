@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<div id="header-container"></div>
-
+  
+<head id="header-container"></head>
+  
 <body style="display: none;">
-
-  <div id="navbar-container"></div>
+  
+  <header id="navbar-container"></header>
 
   <div class="content">
     <section class="contact-section">
@@ -41,72 +41,34 @@
       </div>
     </section>
   </div>
+  
+  <footer id="footer-container" class="text-center text-lg-start text-muted mt-3" style="background-color: #f5f5f5;"></footer>
 
+  <script src="/app/public/js/components/load.js"></script>
   <script>
-    function updateTime() {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const timeString = `${hours}:${minutes}`;
-      document.getElementById('current-time').textContent = timeString;
-    }
-
-    setInterval(updateTime, 1000);
-    updateTime();
-  </script>
-
-
-
-  <div id="footer-container"></div>
-
-  <script>
-    function updateTime() {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const timeString = `${hours}:${minutes}`;
-      document.getElementById('current-time').textContent = timeString;
-    }
-
-    setInterval(updateTime, 1000);
-    updateTime();
-  </script>
-
-  <script>
-    // Function to load external HTML content
-    function loadHTML(filename) {
-      return new Promise((resolve, reject) => {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-          if (this.readyState === 4) {
-            if (this.status === 200) {
-              resolve(this.responseText);
-            } else {
-              reject(new Error('Error al cargar ' + filename));
-            }
-          }
-        };
-        xhttp.open("GET", filename, true);
-        xhttp.send();
-      });
-    }
-
-    Promise.all([
-      loadHTML("/app/resource/views/layouts/header.html"),
-      loadHTML("/app/resource/views/layouts/navbars/navs/guest.html"),
-      loadHTML("/app/resource/views/layouts/footer.html")
-    ])
-      .then(([header, navbar, footer]) => {
-        document.getElementById("header-container").innerHTML = header;
-        document.getElementById("navbar-container").innerHTML = navbar;
-        document.getElementById("footer-container").innerHTML = footer;
+    document.addEventListener('DOMContentLoaded', function() {
+      Promise.all([
+        loadHTML("/app/resource/views/layouts/header.html", "header-container"),
+        loadScript("/app/public/js/components/time.js"),
+      ])
+      .then(() => {
+        // Una vez cargados los CSS, cargar el HTML
+        return Promise.all([
+          loadHTML("/app/resource/views/layouts/navbars/navs/guest.html", "navbar-container"),
+          loadHTML("/app/resource/views/layouts/footer.html", "footer-container")
+        ]);
       })
       .then(() => {
-        document.body.style.display = "block";
+        Promise.all([
+          updateTime('current-time'),
+          document.body.style.display = "block"
+        ])
       })
-      .catch(error => {
-        console.error('Error al cargar las partes de la página:', error);
+      .catch((error) => {
+        console.error("Error al cargar los recursos:", error);
       });
+    });
+
   </script>
 </body>
 

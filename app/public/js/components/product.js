@@ -1,5 +1,5 @@
 
-async function loadProduct(idcontent) {
+async function loadProduct(idcontent,col) {
     try {
         const response = await fetch('/app/models/product_model.json');
 
@@ -12,7 +12,7 @@ async function loadProduct(idcontent) {
         const container = document.getElementById(idcontent);
 
         data.forEach(product => {
-            const card = createProductCard(product);
+            const card = createProductCard(product,col);
             container.appendChild(card);
         });
 
@@ -21,9 +21,9 @@ async function loadProduct(idcontent) {
     }
 }
 
-function createProductCard(product) {
+function createProductCard(product,col) {
     const article = document.createElement('article');
-    article.className = 'col-lg-4 col-md-6 col-sm-6 d-flex product-design';
+    article.className = `col-lg-${col} col-md-6 col-sm-6 d-flex product-design`;
     
     const card = document.createElement('div');
     card.className = 'card w-100 my-2 shadow-2-strong';

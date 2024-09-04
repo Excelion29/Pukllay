@@ -1,0 +1,34 @@
+[
+    {
+        "categoryTitle" : "Controles",
+        "categoryImage" : "/app/public/img/category-image/Accesorios-consolas-videojuegos.webp"
+    },
+    {
+        "categoryTitle" : "Realidad virtual",
+        "categoryImage" : "/app/public/img/category-image/visor-virtual.webp"
+    },
+    {
+        "categoryTitle" : "Consola retro",
+        "categoryImage" : "/app/public/img/category-image/consola-retro.jpg"
+    },
+    {
+        "categoryTitle" : "Mandos",
+        "categoryImage" : "/app/public/img/category-image/mandos.webp"
+    },
+    {
+        "categoryTitle" : "Llaves steam",
+        "categoryImage" : "/app/public/img/category-image/llaves-stean.jpg"
+    },
+    {
+        "categoryTitle" : "Funkos",
+        "categoryImage" : "/app/public/img/category-image/funkos.jpg"
+    },
+    {
+        "categoryTitle" : "Figuras de accion",
+        "categoryImage" : "/app/public/img/category-image/figuras-accion.jpg"
+    },
+    {
+        "categoryTitle" : "Juegos fisicos",
+        "categoryImage" : "/app/public/img/category-image/figuras-accion.jpg"
+    }
+]

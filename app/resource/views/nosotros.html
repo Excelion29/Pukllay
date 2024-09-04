@@ -1,78 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<div id="header-container"></div>
+<head id="header-container"></head>
   
 <body style="display: none;">
   
-  <div id="navbar-container"></div>
+  <header id="navbar-container"></header>
 
   <div class="content">
+    <section id="nosotros" class="py-5">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <h2>¿Quiénes somos?</h2>
+                  <p>Pukllay es tu tienda de videojuegos en línea. Proporcionamos una selección de juegos de calidad y un
+                      servicio rápido y confiable. Encuentra lo que necesitas con facilidad.</p>
+                  <h3>Misión</h3>
+                  <p>Nuestra misión es establecer un estándar de excelencia en la distribución de videojuegos,
+                      garantizando que cada interacción con nuestra plataforma sea eficiente, confiable y orientada al
+                      cliente.</p>
+                  <h3>Visión</h3>
+                  <p>Nuestra visión es una plataforma, reconocida por ofrecer una experiencia excepcional. Aspiramos a ser
+                      el lugar de referencia para todos los amantes de los videojuegos, donde cada visita sea una
+                      oportunidad para descubrir, aprender y conectar con uno mismo.</p>
+                  <h3>Propósito</h3>
+                  <p>Nuestro propósito es conocer mejor a nuestros clientes, aprender de ellos y ofrecerles una
+                      experiencia de navegación segura, asegurando que cada cliente pueda encontrar y adquirir sus
+                      videojuegos favoritos.</p>
+              </div>
+              <div class="col-md-6">
+                  <img src="/app/public/img/pukllaytienda.jpg" class="img-fluid" alt="Nuestra tienda">
+              </div>
+          </div>
+      </div>
+    </section>
 
-<section id="nosotros" class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>¿Quiénes somos?</h2>
-                <p>Pukllay es tu tienda de videojuegos en línea. Proporcionamos una selección de juegos de calidad y un
-                    servicio rápido y confiable. Encuentra lo que necesitas con facilidad.</p>
-                <h3>Misión</h3>
-                <p>Nuestra misión es establecer un estándar de excelencia en la distribución de videojuegos,
-                    garantizando que cada interacción con nuestra plataforma sea eficiente, confiable y orientada al
-                    cliente.</p>
-                <h3>Visión</h3>
-                <p>Nuestra visión es una plataforma, reconocida por ofrecer una experiencia excepcional. Aspiramos a ser
-                    el lugar de referencia para todos los amantes de los videojuegos, donde cada visita sea una
-                    oportunidad para descubrir, aprender y conectar con uno mismo.</p>
-                <h3>Propósito</h3>
-                <p>Nuestro propósito es conocer mejor a nuestros clientes, aprender de ellos y ofrecerles una
-                    experiencia de navegación segura, asegurando que cada cliente pueda encontrar y adquirir sus
-                    videojuegos favoritos.</p>
-            </div>
-            <div class="col-md-6">
-                <img src="/app/public/img/pukllaytienda.jpg" class="img-fluid" alt="Nuestra tienda">
-            </div>
-        </div>
-    </div>
-   </section>
   </div>  
+  
+  <footer id="footer-container" class="text-center text-lg-start text-muted mt-3" style="background-color: #f5f5f5;"></footer>
 
-  <div id="footer-container"></div>
 
+  <script src="/app/public/js/components/load.js"></script>
   <script>
-    // Function to load external HTML content
-    function loadHTML(filename) {
-      return new Promise((resolve, reject) => {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState === 4) {
-            if (this.status === 200) {
-              resolve(this.responseText);
-            } else {
-              reject(new Error('Error al cargar ' + filename));
-            }
-          }
-        };
-        xhttp.open("GET", filename, true);
-        xhttp.send();
+    document.addEventListener('DOMContentLoaded', function() {
+      Promise.all([
+        loadHTML("/app/resource/views/layouts/header.html", "header-container"),
+      ])
+      .then(() => {
+        return Promise.all([
+          loadHTML("/app/resource/views/layouts/navbars/navs/guest.html", "navbar-container"),
+          loadHTML("/app/resource/views/layouts/footer.html", "footer-container")
+        ]);
+      })
+      .then(() => {
+        Promise.all([
+          document.body.style.display = "block"
+        ])
+      })
+      .catch((error) => {
+        console.error("Error al cargar las partes de la página:", error);
       });
-    }
-
-    Promise.all([
-      loadHTML("/app/resource/views/layouts/header.html"),
-      loadHTML("/app/resource/views/layouts/navbars/navs/guest.html"),
-      loadHTML("/app/resource/views/layouts/footer.html")
-    ])
-    .then(([header, navbar, footer]) => {
-      document.getElementById("header-container").innerHTML = header;
-      document.getElementById("navbar-container").innerHTML = navbar;
-      document.getElementById("footer-container").innerHTML = footer;
-    })
-    .then(() => {
-      document.body.style.display = "block";
-    })
-    .catch(error => {
-      console.error('Error al cargar las partes de la página:', error);
     });
   </script>
 </body>
