@@ -23,61 +23,54 @@ async function loadProduct(idcontent) {
 
 function createProductCard(product) {
     const article = document.createElement('article');
-    article.classList.add('col-lg-3', 'col-md-6', 'col-sm-6', 'd-flex', 'product-design');
+    article.className = 'col-lg-4 col-md-6 col-sm-6 d-flex product-design';
     
     const card = document.createElement('div');
-    card.classList.add('card', 'w-100', 'my-2', 'shadow-2-strong');
+    card.className = 'card w-100 my-2 shadow-2-strong';
 
     // Crear la imagen
     const img = document.createElement('img');
     img.src = product.productImage;
-    img.classList.add('card-img-top');
+    img.className = 'card-img-top';
     img.style.aspectRatio = '1 / 1';
 
     // Crear el cuerpo de la tarjeta
     const cardBody = document.createElement('div');
-    cardBody.classList.add('card-body', 'd-flex', 'flex-column');
+    cardBody.className = 'card-body d-flex flex-column';
 
     // Crear la línea de separación
     const hr = document.createElement('hr');
 
     // Crear el título
     const cardTitle = document.createElement('h5');
-    cardTitle.classList.add('card-title', 'text-black');
+    cardTitle.className = 'card-title text-black';
     cardTitle.textContent = product.productDescription;
 
     // Crear el precio
     const cardText = document.createElement('p');
-    cardText.classList.add('card-text', 'h5', 'mt-2');
+    cardText.className = 'card-text h5 mt-2';
     cardText.textContent = `${product.productRealPrice}`;
 
     // Crear el pie de la tarjeta
     const cardFooter = document.createElement('div');
-    cardFooter.classList.add('card-footer', 'd-flex', 'pt-2', 'px-0', 'pb-0', 'mt-auto');
+    cardFooter.className = 'card-footer d-flex pt-2 px-0 pb-0 mt-auto';
 
     // Crear el botón "Agregar al carro"
     const addToCartButton = document.createElement('a');
     addToCartButton.href = '#!';
-    addToCartButton.classList.add('btn', 'btn-success', 'shadow-0', 'me-1', 'p-2', 'text-white', 'align-content-center');
+    addToCartButton.className = 'btn btn-success shadow-0 me-1 p-2 text-white align-content-center';
     addToCartButton.style.width = '60%';
-    addToCartButton.innerHTML = '<i class="fa-solid fa-cart-shopping"></i><br><span>Agregar al carro</span>';
+    addToCartButton.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> <br> <span>Agregar al carro</span>';
 
-    // priceRowDiv.appendChild(currentPrice);
-    // if (product.productDiscount != null) {
-    //     const originalPrice = document.createElement('span');
-    //     originalPrice.className = 'text-danger';
-    //     originalPrice.innerHTML = `<s>${product.productPrice}</s>`;
-    //     priceRowDiv.appendChild(originalPrice);
-        
-    // }
+
     
     // Crear el botón "Comprar"
     const buyButton = document.createElement('a');
     buyButton.href = '#!';
-    buyButton.classList.add('btn', 'btn-success', 'shadow-0', 'me-1', 'p-2', 'text-white', 'align-content-center');
+    buyButton.className = 'btn btn-success shadow-0 me-1 p-2 text-white align-content-center';
     buyButton.style.width = '40%';
-    buyButton.innerHTML = '<i class="fa-solid fa-credit-card"></i><br><span>Comprar</span>';
-
+    buyButton.innerHTML = '<i class="fa-solid fa-credit-card"></i> <br> <span>Comprar</span>';
+    
     // Añadir los botones al pie de la tarjeta
     cardFooter.appendChild(addToCartButton);
     cardFooter.appendChild(buyButton);
@@ -85,6 +78,13 @@ function createProductCard(product) {
     // Añadir elementos al cuerpo de la tarjeta
     cardBody.appendChild(hr);
     cardBody.appendChild(cardTitle);
+    
+    if (product.productDiscount != null) {
+        const originalPrice = document.createElement('span');
+        originalPrice.className = 'text-danger';
+        originalPrice.innerHTML = `<s>${product.productPrice}</s>`;
+        cardBody.appendChild(originalPrice);
+    }
     cardBody.appendChild(cardText);
     cardBody.appendChild(cardFooter);
 
@@ -94,5 +94,6 @@ function createProductCard(product) {
 
     // Añadir la tarjeta al artículo
     article.appendChild(card);
+
     return article;
 }
