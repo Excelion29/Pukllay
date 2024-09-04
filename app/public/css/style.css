@@ -278,6 +278,16 @@ ol, ul {
   margin-bottom: 20px;
 }
 
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
+
 .contact-info i {
   font-size: 20px;
   margin-right: 10px;
@@ -290,6 +300,8 @@ ol, ul {
 
 .contact-form .form-control {
   border-radius: 5px;
+  height: 40px;
+  padding: 10px;
 }
 
 .contact-form .btn {
@@ -304,6 +316,12 @@ ol, ul {
 
 .contact-form .btn:hover {
   background-color: #ffcc00;
+}
+
+.contact-form h4 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
 }
 
 @keyframes fadeIn {
