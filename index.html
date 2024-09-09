@@ -1,63 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<head id="header-container"></head>
+<head id="header-container">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>PUKLLAY</title>
+</head>
   
 <body style="display: none;">
   
     <header id="navbar-container"></header>
 
     <div class="content">
-      
       <!-- Carousel wrapper -->
-       
-      <section>
-        <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel" data-mdb-carousel-init>
-          <!-- Indicators -->
-          <div class="carousel-indicators">
-            <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-          </div>
-        
-          <!-- Inner -->
-          <div class="carousel-inner">
-            <!-- Single item -->
-            <div class="carousel-item active">
-              <img src="/app/public/img/slider/first-slider.jpg" class="d-block w-100" alt="Sunset Over the City"/>
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mira nuestras</h5>
-                <p>ofertas por inaguración</p>
-              </div>
-            </div>
-        
-            <!-- Single item -->
-            <div class="carousel-item">
-              <img src="/app/public/img/slider/joysticks.jpg" class="d-block w-100" alt="Canyon at Nigh"/>
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Todas las consolas</h5>
-                <p>En un solo lugar</p>
-              </div>
-            </div>
-        
-          </div>
-          <!-- Inner -->
-        
-          <!-- Controls -->
-          <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
+      <section id="carrousel-container"></section>
       <!-- Carousel wrapper -->
       
       <!-- Products -->
       <section>
-        <div class="container">
+        <div class="container my-5">
           <header class="mb-4">
             <h2 class="text-center title-red title-section">Nuestras novedades</h2>
           </header>
@@ -83,34 +45,44 @@
         </div>
       </section>
       <!-- Categories --->
-
     </div>
 
     <footer id="footer-container" class="text-center text-lg-start text-muted mt-3" style="background-color: #f5f5f5;"></footer>
 
     <script src="/app/public/js/components/load.js"></script>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         Promise.all([
-          loadHTML("/app/resource/views/layouts/header.html", "header-container"),
-          loadScript("/app/public/js/mdb.umd.min.js", "module"),
-          loadScript("/app/public/js/mdb.es.min.js", "module"),
-          loadScript("/app/public/js/components/product.js"),
-          loadScript("/app/public/js/components/swiper-slide.js"),
           loadScript("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"),
           loadScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"),
-          loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
+          loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"),
+          loadScript("/app/public/js/mdb.es.min.js", "module"),
+          loadScript("/app/public/js/components/navbars/navs/guest.js"),
+          loadScript("/app/public/js/components/carrousel.js"),
+          loadScript("/app/public/js/components/footer.js"),
+          loadScript("/app/public/js/components/product.js"),
+          loadScript("/app/public/js/components/swiper-slide.js")
         ])
         .then(() => {
+          // Una vez cargados los CSS, cargar el HTML
           Promise.all([
-            loadCSS('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', 'stylesheet'),
-          ])
+            loadCSS("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css", "stylesheet"),
+            loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", "stylesheet"),
+            loadCSS("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap", "stylesheet"),
+            loadCSS("https://fonts.googleapis.com", "preconnect"),
+            loadCSS("https://fonts.gstatic.com", "preconnect"),
+            loadCSS("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap", "stylesheet"),
+            loadCSS("/app/public/css/style.css", "stylesheet"),
+            loadCSS("/app/public/css/mdb.min.css", "stylesheet")
+          ]);
         })
         .then(() => {
           // Una vez cargados los CSS, cargar el HTML
           return Promise.all([
-            loadHTML("/app/resource/views/layouts/navbars/navs/guest.html", "navbar-container"),
-            loadHTML("/app/resource/views/layouts/footer.html", "footer-container")
+            loadNavbar("navbar-container"),
+            loadCarrousel("carrousel-container"),
+            loadFooter("footer-container")
           ]);
         })
         .then(() => {
@@ -124,7 +96,6 @@
           console.error("Error al cargar los recursos:", error);
         });
       });
-      
     </script>
   </body>
 </html>

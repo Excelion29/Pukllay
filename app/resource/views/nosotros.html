@@ -45,11 +45,13 @@
     document.addEventListener('DOMContentLoaded', function() {
       Promise.all([
         loadHTML("/app/resource/views/layouts/header.html", "header-container"),
+        loadScript("/app/public/js/components/navbars/navs/guest.js"),
+        loadScript("/app/public/js/components/footer.js"),
       ])
       .then(() => {
         return Promise.all([
-          loadHTML("/app/resource/views/layouts/navbars/navs/guest.html", "navbar-container"),
-          loadHTML("/app/resource/views/layouts/footer.html", "footer-container")
+          loadNavbar("navbar-container"),
+          loadFooter("footer-container")
         ]);
       })
       .then(() => {

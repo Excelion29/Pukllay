@@ -33,7 +33,6 @@ function loadScript(src, type = "text/javascript") {
     document.head.appendChild(script);
   });
 }
-
 function loadHTML(filename, elementId) {
   return new Promise((resolve, reject) => {
     var xhttp = new XMLHttpRequest();

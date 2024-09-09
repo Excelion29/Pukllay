@@ -106,7 +106,7 @@ function createSwiperSlide(category) {
 
     // Crear el elemento <p> y asignar las clases y el texto
     const p = document.createElement('p');
-    p.className = 'text-center h4 mb-3 mt-3 text-overlay';
+    p.className = 'text-center h4 mb-3 mt-3 text-overlay text-white';
     p.textContent = category.categoryTitle;
 
     // Agregar el <p> al contenedor de texto
