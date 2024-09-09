@@ -65,20 +65,18 @@
           loadScript("/app/public/js/components/swiper-slide.js")
         ])
         .then(() => {
-          // Una vez cargados los CSS, cargar el HTML
-          Promise.all([
+          // Cargar CSS
+          return Promise.all([
             loadCSS("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css", "stylesheet"),
             loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", "stylesheet"),
             loadCSS("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap", "stylesheet"),
-            loadCSS("https://fonts.googleapis.com", "preconnect"),
-            loadCSS("https://fonts.gstatic.com", "preconnect"),
             loadCSS("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap", "stylesheet"),
             loadCSS("/app/public/css/style.css", "stylesheet"),
             loadCSS("/app/public/css/mdb.min.css", "stylesheet")
           ]);
         })
         .then(() => {
-          // Una vez cargados los CSS, cargar el HTML
+          // Cargar componentes HTML
           return Promise.all([
             loadNavbar("navbar-container"),
             loadCarrousel("carrousel-container"),
@@ -86,11 +84,15 @@
           ]);
         })
         .then(() => {
-          Promise.all([
-            loadProduct("product-content",3),
-            loadCategories("categories-container","sliderCategories"),
-            document.body.style.display = "block"
-          ])
+          // Cargar productos y categorías
+          return Promise.all([
+            loadProduct("product-content", 3),
+            loadCategories("categories-container", "sliderCategories")
+          ]);
+        })
+        .then(() => {
+          // Mostrar el contenido
+          document.body.style.display = "block";
         })
         .catch((error) => {
           console.error("Error al cargar los recursos:", error);
