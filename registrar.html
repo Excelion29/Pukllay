@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registro - Pukllay Gamer</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #1b1b1b;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Estilo para el formulario de registro */
+        .register-section {
+            background-color: #282828;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .btn-register {
+            background-color: #00ffcc;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-register:hover {
+            background-color: #00e6b3;
+        }
+
+        .form-control {
+            background-color: #333;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            background-color: #444;
+            border-color: #00ffcc;
+            box-shadow: none;
+        }
+
+        /* Estilo para el título */
+        .register-title {
+            color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.75);
+        }
+
+        /* Botones sociales */
+        .social-btn {
+            background-color: #3b5998;
+            color: #fff;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+
+        .social-btn.google {
+            background-color: #db4437;
+        }
+
+        .social-btn.twitter {
+            background-color: #1da1f2;
+        }
+
+        .social-btn.github {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="register-section col-lg-6 col-md-8 col-sm-10">
+            <h2 class="text-center register-title mb-4">Regístrate en Pukllay</h2>
+            <form>
+                <!-- Nombre input -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre completo">
+                </div>
+
+                <!-- Email input -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+                </div>
+
+                <!-- Password input -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Crea una contraseña">
+                </div>
+
+                <!-- Confirmar Password input -->
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Repite tu contraseña">
+                </div>
+
+                <!-- Register button -->
+                <div class="d-grid mb-4">
+                    <button type="submit" class="btn btn-register btn-lg text-uppercase fw-bold">Registrarse</button>
+                </div>
+
+                <!-- Social Register options 
+                <div class="text-center mb-3">
+                    <p>O regístrate con:</p>
+                    <a href="#" class="btn social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="btn social-btn twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn social-btn github"><i class="fab fa-github"></i></a>
+                </div>
+-->
+                
+                <!-- Already have an account -->
+                <div class="text-center">
+                    <p>¿Ya tienes una cuenta? <a href="/iniciosesion.html" class="text-warning">Inicia sesión</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

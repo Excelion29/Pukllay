@@ -52,7 +52,7 @@ async function loadNavbar(container) {
         };
 
         // Crear los enlaces con íconos
-        iconWrapper.appendChild(createIconLink("https://github.com/mdbootstrap/bootstrap-material-design", "fa-user-alt", "Sign in"));
+        iconWrapper.appendChild(createIconLink("/iniciosesion.html", "fa-user-alt", "Sign in"));
         iconWrapper.appendChild(createIconLink("https://github.com/mdbootstrap/bootstrap-material-design", "fa-heart", "Wishlist"));
         iconWrapper.appendChild(createIconLink("https://github.com/mdbootstrap/bootstrap-material-design", "fa-shopping-cart", "My cart"));
         colIconsDiv.appendChild(iconWrapper);
