@@ -1,37 +1,37 @@
 [
     {
         "productTitle" : "T-shirts with multiple colors, for men and lady",
-        "productDescription" : "T-shirts with multiple colors, for men and lady",
-        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/firstProductImage.jpg",
-        "productRealPrice" : "49.99",
-        "productPrice" : "34.50",
+        "productDescription" : "Cyberpunk 2077 - PC",
+        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/cyberpunk2077.jpeg",
+        "productRealPrice" : "$25.99",
+        "productPrice" : "$34.50",
         "productDiscount" : "30.98",
         "productDiscountType" : "percentage"
     },
     {
         "productTitle" : "T-shirts with multiple colors, for men and lady",
-        "productDescription" : "T-shirts with multiple colors, for men and lady",
-        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/firstProductImage.jpg",
-        "productRealPrice" : "49.99",
-        "productPrice" : "34.50",
+        "productDescription" : "The Witcher 3: Wild Hunt - Game of the Year Edition (PC)",
+        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/thewitcher3.webp",
+        "productRealPrice" : "$30.99",
+        "productPrice" : "$40.50",
         "productDiscount" : "30.98",
         "productDiscountType" : "percentage"
     },
     {
         "productTitle" : "T-shirts with multiple colors, for men and lady",
-        "productDescription" : "T-shirts with multiple colors, for men and lady",
-        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/firstProductImage.jpg",
-        "productRealPrice" : "49.99",
-        "productPrice" : "34.50",
-        "productDiscount" : null,
+        "productDescription" : "Assassin's Creed Valhalla - PC",
+        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/assassin.jpg",
+        "productRealPrice" : "$35.99",
+        "productPrice" : "$60.00",
+        "productDiscount" : "42.30",
         "productDiscountType" : "percentage"
     },
     {
         "productTitle" : "T-shirts with multiple colors, for men and lady",
-        "productDescription" : "T-shirts with multiple colors, for men and lady",
-        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/firstProductImage.jpg",
-        "productRealPrice" : "49.99",
-        "productPrice" : "34.50",
+        "productDescription" : "Red Dead Redemption 2 - PC",
+        "productImage" : "http://127.0.0.1:5501/app/public/img/product-image/reddead.webp",
+        "productRealPrice" : "$35.99",
+        "productPrice" : "$45.60",
         "productDiscount" : "30.98",
         "productDiscountType" : "percentage"
     }
