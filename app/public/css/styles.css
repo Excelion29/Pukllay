@@ -1,0 +1,52 @@
+ .cart-title {
+     font-size: 2rem;
+     font-weight: bold;
+     color: #333;
+     margin-bottom: 20px;
+ }
+
+ .cart-item {
+     border-bottom: 1px solid #ddd;
+     padding: 20px 0;
+ }
+
+ .cart-item:last-child {
+     border-bottom: none;
+ }
+
+ .price {
+     font-size: 1.2rem;
+     font-weight: bold;
+     color: #d9534f;
+ }
+
+ .btn-remove {
+     background-color: transparent;
+     color: #d9534f;
+     border: none;
+     cursor: pointer;
+ }
+
+ .btn-remove:hover {
+     color: #c9302c;
+ }
+
+ .total-price {
+     font-size: 1.5rem;
+     color: #333;
+     font-weight: bold;
+ }
+
+ .checkout-btn {
+     background-color: #5cb85c;
+     border: none;
+     color: #fff;
+     padding: 10px 20px;
+     font-size: 1.2rem;
+     font-weight: bold;
+     transition: background-color 0.3s;
+ }
+
+ .checkout-btn:hover {
+     background-color: #4cae4c;
+ }
