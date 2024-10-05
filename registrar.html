@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Registro - Pukllay Gamer</title>
 
     <!-- Bootstrap CSS -->
@@ -27,10 +26,10 @@
         /* Estilo para el formulario de registro */
         .register-section {
             background-color: #282828;
-            padding: 3rem;
+            padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
+            max-width: 500px;
             margin: 2rem auto;
         }
 
@@ -56,30 +55,24 @@
             box-shadow: none;
         }
 
-        /* Estilo para el título */
         .register-title {
             color: #00ffcc;
             text-shadow: 0 0 10px rgba(0, 255, 204, 0.75);
         }
 
-        /* Botones sociales */
-        .social-btn {
-            background-color: #3b5998;
-            color: #fff;
-            border-radius: 50%;
-            margin: 0 10px;
-        }
-
-        .social-btn.google {
-            background-color: #db4437;
-        }
-
-        .social-btn.twitter {
-            background-color: #1da1f2;
-        }
-
-        .social-btn.github {
+        .input-group-text {
             background-color: #333;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        /* Pequeño espaciado entre los inputs */
+        .mb-2 {
+            margin-bottom: 1rem !important;
+        }
+
+        .is-invalid~.invalid-feedback {
+            display: block;
         }
     </style>
 </head>
@@ -89,47 +82,62 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="register-section col-lg-6 col-md-8 col-sm-10">
             <h2 class="text-center register-title mb-4">Regístrate en Pukllay</h2>
-            <form>
+            <form id="registerForm" action="register.php" method="POST">
                 <!-- Nombre input -->
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre completo">
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                </div>
+
+                <!-- Apellido input -->
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido"
+                        required>
+                </div>
+
+                <!-- Dirección input -->
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección"
+                        required>
+                </div>
+
+                <!-- Teléfono input -->
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono"
+                        required>
                 </div>
 
                 <!-- Email input -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico"
+                        required>
                 </div>
 
                 <!-- Password input -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="Crea una contraseña">
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
+                        required>
                 </div>
 
                 <!-- Confirmar Password input -->
-                <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Repite tu contraseña">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirmar Contraseña" required>
+                    <div class="invalid-feedback">Las contraseñas no coinciden.</div>
                 </div>
 
                 <!-- Register button -->
-                <div class="d-grid mb-4">
-                    <button type="submit" class="btn btn-register btn-lg text-uppercase fw-bold">Registrarse</button>
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-register btn-lg text-uppercase fw-bold"
+                        id="submitBtn">Registrarse</button>
                 </div>
 
-                <!-- Social Register options 
-                <div class="text-center mb-3">
-                    <p>O regístrate con:</p>
-                    <a href="#" class="btn social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn social-btn google"><i class="fab fa-google"></i></a>
-                    <a href="#" class="btn social-btn twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn social-btn github"><i class="fab fa-github"></i></a>
-                </div>
--->
-                
-                <!-- Already have an account -->
                 <div class="text-center">
                     <p>¿Ya tienes una cuenta? <a href="/iniciosesion.html" class="text-warning">Inicia sesión</a></p>
                 </div>
@@ -139,6 +147,21 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Validación de contraseñas -->
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault(); // Prevenir el envío del formulario
+                document.getElementById("confirmPassword").classList.add("is-invalid");
+                alert("Las contraseñas no coinciden.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>
