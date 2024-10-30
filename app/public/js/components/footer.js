@@ -53,7 +53,7 @@ async function loadFooter(container) {
         // Agregar enlaces a la lista
         infoList.appendChild(createInfoLink('/app/resource/views/nosotros.html', 'Nosotros'));
         infoList.appendChild(createInfoLink('#', 'Nuestras Tiendas'));
-        infoList.appendChild(createInfoLink('#', '¿Cómo comprar?'));
+        infoList.appendChild(createInfoLink('/comocomprar.html', '¿Cómo comprar?'));
         infoList.appendChild(createInfoLink('/app/resource/views/contact.html', 'Contáctanos'));
 
         col2Div.appendChild(infoHeading);

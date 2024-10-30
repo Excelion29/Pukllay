@@ -2,15 +2,15 @@ async function loadNavbar(container) {
     try {
         const navbarContainer = document.getElementById(container);
 
-        // Crear el contenedor principal
+        // Contenedor principal
         const mainDiv = document.createElement('div');
         mainDiv.classList.add('p-3', 'text-center', 'bg-white', 'border-bottom');
 
-        // Crear el contenedor secundario
+        // Contenedor secundario
         const containerDiv = document.createElement('div');
         containerDiv.classList.add('container');
 
-        // Crear la fila
+        // Fila principal
         const rowDiv = document.createElement('div');
         rowDiv.classList.add('row', 'gy-3');
 
@@ -32,52 +32,41 @@ async function loadNavbar(container) {
         const iconWrapper = document.createElement('div');
         iconWrapper.classList.add('d-flex', 'float-end');
 
-        // Función para crear los enlaces con íconos
         const createIconLink = (href, iconClass, text) => {
             const link = document.createElement('a');
             link.href = href;
             link.classList.add('me-1', 'border', 'rounded', 'py-1', 'px-3', 'nav-link', 'd-flex', 'align-items-center');
             link.target = "_blank";
-            
+
             const icon = document.createElement('i');
             icon.classList.add('fas', iconClass, 'm-1', 'me-md-2');
             link.appendChild(icon);
-            
+
             const p = document.createElement('p');
             p.classList.add('d-none', 'd-md-block', 'mb-0');
             p.textContent = text;
             link.appendChild(p);
-            
+
             return link;
         };
 
-        // Crear los enlaces con íconos
-        iconWrapper.appendChild(createIconLink("/iniciosesion.html", "fa-user-alt", "Sign in"));
-        iconWrapper.appendChild(createIconLink("https://github.com/mdbootstrap/bootstrap-material-design", "fa-heart", "Wishlist"));
-        iconWrapper.appendChild(createIconLink("https://github.com/mdbootstrap/bootstrap-material-design", "fa-shopping-cart", "My cart"));
+        iconWrapper.appendChild(createIconLink("/iniciosesion.html", "fa-user-alt", "Iniciar Sesión"));
         colIconsDiv.appendChild(iconWrapper);
 
-        // Tercera columna (Search bar)
+        // Tercera columna (Barra de búsqueda)
         const colSearchDiv = document.createElement('div');
         colSearchDiv.classList.add('col-lg-5', 'col-md-12', 'col-12');
         const searchWrapper = document.createElement('div');
-        searchWrapper.classList.add('input-group', 'float-center');
+        searchWrapper.classList.add('input-group', 'float-center', 'position-relative'); // Para posicionar resultados
 
-        // Search input
-        const formOutline = document.createElement('div');
-        formOutline.classList.add('form-outline');
+        // Input de búsqueda
         const searchInput = document.createElement('input');
         searchInput.type = "search";
-        searchInput.id = "form1";
+        searchInput.id = "searchInput";
         searchInput.classList.add('form-control');
-        const searchLabel = document.createElement('label');
-        searchLabel.classList.add('form-label');
-        searchLabel.setAttribute('for', 'form1');
-        searchLabel.textContent = 'Search';
-        formOutline.appendChild(searchInput);
-        formOutline.appendChild(searchLabel);
+        searchInput.placeholder = "Buscar productos...";
 
-        // Search button
+        // Botón de búsqueda
         const searchButton = document.createElement('button');
         searchButton.type = "button";
         searchButton.classList.add('btn', 'btn-danger', 'shadow-0');
@@ -85,9 +74,25 @@ async function loadNavbar(container) {
         searchIcon.classList.add('fas', 'fa-search');
         searchButton.appendChild(searchIcon);
 
-        // Agregar input y botón al contenedor
-        searchWrapper.appendChild(formOutline);
+        // Contenedor para los resultados de búsqueda
+        const resultsContainer = document.createElement('div');
+        resultsContainer.id = "search-results";
+        resultsContainer.style.cssText = `
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            z-index: 1000;
+        `;
+
+        // Agregar input, botón y contenedor de resultados al contenedor de búsqueda
+        searchWrapper.appendChild(searchInput);
         searchWrapper.appendChild(searchButton);
+        searchWrapper.appendChild(resultsContainer);
         colSearchDiv.appendChild(searchWrapper);
 
         // Agregar columnas a la fila
@@ -97,14 +102,13 @@ async function loadNavbar(container) {
 
         // Agregar fila al contenedor
         containerDiv.appendChild(rowDiv);
-
-        // Agregar contenedor principal al body
-        navbarContainer.appendChild(mainDiv);
         mainDiv.appendChild(containerDiv);
+        navbarContainer.appendChild(mainDiv);
 
-        // Creación de la Navbar
+        // Crear el navbar completo
         const nav = document.createElement('nav');
         nav.classList.add('navbar', 'navbar-expand-lg', 'navbar-light', 'bg-white');
+
         const containerNav = document.createElement('div');
         containerNav.classList.add('container', 'justify-content-center', 'justify-content-md-between');
 
@@ -121,43 +125,108 @@ async function loadNavbar(container) {
         toggleIcon.classList.add('fas', 'fa-bars');
         toggleButton.appendChild(toggleIcon);
 
-        // Colapsable (menú de enlaces)
+        // Menú colapsable
         const collapseDiv = document.createElement('div');
         collapseDiv.classList.add('collapse', 'navbar-collapse', 'justify-content-center');
         collapseDiv.id = 'navbarLeftAlignExample';
 
-        // Lista de enlaces
         const ul = document.createElement('ul');
         ul.classList.add('navbar-nav', 'mb-2', 'mb-lg-0');
 
-        // Función para crear un enlace de navegación
         const createNavLink = (href, text) => {
             const li = document.createElement('li');
             li.classList.add('nav-item', 'mx-3');
-            
+
             const a = document.createElement('a');
             a.classList.add('nav-link', 'text-dark', 'custom-hover', 'fw-bold', 'fs-5');
             a.href = href;
             a.textContent = text;
-            
+
             li.appendChild(a);
             return li;
         };
 
-        // Crear y agregar los enlaces a la lista
         ul.appendChild(createNavLink("/app/resource/views/nosotros.html", "Nosotros"));
         ul.appendChild(createNavLink("/app/resource/views/contact.html", "Contacto"));
         ul.appendChild(createNavLink("/app/resource/views/shop.html", "Tienda"));
 
-        // Agregar lista y colapsable al contenedor de la navbar
         collapseDiv.appendChild(ul);
         containerNav.appendChild(toggleButton);
         containerNav.appendChild(collapseDiv);
-
-        // Agregar contenedor de la navbar al elemento nav y finalmente al body
         nav.appendChild(containerNav);
         navbarContainer.appendChild(nav);
-    } catch(error){
+
+        // Evento para búsqueda en tiempo real
+        searchInput.addEventListener('input', performSearch);
+
+        // Evento para ocultar resultados al hacer clic fuera del input o del contenedor
+        document.addEventListener('click', (event) => {
+            if (
+                !searchWrapper.contains(event.target) &&
+                !resultsContainer.contains(event.target)
+            ) {
+                resultsContainer.innerHTML = ''; // Vacía el contenedor de resultados
+            }
+        });
+
+    } catch (error) {
         console.error('Error loading navbar:', error);
     }
 }
+
+// Función para realizar la búsqueda
+async function performSearch() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const resultsContainer = document.getElementById('search-results');
+    resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+
+    try {
+        const response = await fetch('/app/models/product_model.json');
+        const products = await response.json();
+
+        const results = products.filter(product =>
+            product.productDescription.toLowerCase().includes(query)
+        );
+
+        displaySearchResults(results, resultsContainer);
+    } catch (error) {
+        console.error('Error fetching products:', error);
+    }
+}
+
+// Función para mostrar los resultados de búsqueda
+function displaySearchResults(results, container) {
+    if (results.length === 0) {
+        container.innerHTML = '<p style="padding: 10px;">No se encontraron productos.</p>';
+        return;
+    }
+
+    results.forEach(product => {
+        // Crear un enlace que lleva a /compras/comprar.html pasando el nombre del producto como parámetro
+        const productLink = document.createElement('a');
+        productLink.href = `/compras/comprar.html?product=${encodeURIComponent(product.productDescription)}`;
+        productLink.style.cssText = `
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-decoration: none;
+            color: black;
+        `;
+        productLink.target = "_blank"; // Opcional: Abrir en nueva pestaña
+
+        // Contenido del enlace
+        productLink.innerHTML = `
+            <img src="${product.productImage}" alt="${product.productDescription}" 
+                style="height: 40px; margin-right: 10px; border-radius: 8px;">
+            <div>
+                <strong>${product.productDescription}</strong><br>
+                <span style="color: green; font-weight: bold;">${product.productRealPrice}</span>
+            </div>
+        `;
+
+        // Agregar el enlace al contenedor de resultados
+        container.appendChild(productLink);
+    });
+}
+

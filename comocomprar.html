@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="header-container">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Pago</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="display: none;">
+
+    <header id="navbar-container"></header>
+
+    <div class="content d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+        <!-- Información de Pago -->
+        <div class="card text-center shadow-sm p-4" style="max-width: 25rem;">
+            <div class="card-body">
+                <h4 class="card-title text-primary">Método de Pago Aceptado:</h4>
+                <p class="card-text text-muted mb-4">Actualmente solo aceptamos pagos mediante PayPal.</p>
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg" class="img-fluid"
+                    alt="PayPal Logo">
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container" class="text-center text-muted py-2 bg-light"></footer>
+
+    <script src="/app/public/js/components/load.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Promise.all([
+                loadHTML("/app/resource/views/layouts/header.html", "header-container"),
+                loadScript("/app/public/js/components/time.js"),
+                loadScript("/app/public/js/components/navbars/navs/guest.js"),
+                loadScript("/app/public/js/components/footer.js")
+            ])
+                .then(() => {
+                    return Promise.all([
+                        loadNavbar("navbar-container"),
+                        loadFooter("footer-container")
+                    ]);
+                })
+                .then(() => {
+                    document.body.style.display = "block";
+                })
+                .catch((error) => {
+                    console.error("Error al cargar los recursos:", error);
+                });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

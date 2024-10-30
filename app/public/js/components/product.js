@@ -66,7 +66,8 @@ function createProductCard(product,col) {
     
     // Crear el botón "Comprar"
     const buyButton = document.createElement('a');
-    buyButton.href = '#!';
+    buyButton.href = '/compras/compra';
+
     buyButton.className = 'btn btn-success shadow-0 me-1 p-2 text-white align-content-center';
     buyButton.style.width = '40%';
     buyButton.innerHTML = '<i class="fa-solid fa-credit-card"></i> <br> <span>Comprar</span>';

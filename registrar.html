@@ -10,14 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Custom Styles -->
     <style>
+        /* General Styles */
         body {
             background-color: #1b1b1b;
             color: #fff;
             font-family: 'Orbitron', sans-serif;
         }
-        /* Estilo para el formulario de registro */
+
+        /* Estilo del formulario de registro */
         .register-section {
             background-color: #282828;
             padding: 2rem;
@@ -26,37 +27,48 @@
             max-width: 500px;
             margin: 2rem auto;
         }
+
         .btn-register {
             background-color: #00ffcc;
             border: none;
             transition: background-color 0.3s;
         }
+
         .btn-register:hover {
             background-color: #00e6b3;
         }
+
         .form-control {
             background-color: #333;
             border: 1px solid #555;
-            color: #fff;
+            color: #fff !important;
+            /* Texto ingresado en blanco */
         }
+
         .form-control:focus {
             background-color: #444;
             border-color: #00ffcc;
             box-shadow: none;
+            color: #fff !important;
         }
-        .register-title {
-            color: #00ffcc;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.75);
+
+        /* Placeholder Blanco Puro */
+        input::placeholder,
+        input::-webkit-input-placeholder,
+        input::-moz-placeholder,
+        input:-ms-input-placeholder,
+        input::-ms-input-placeholder {
+            color: #fff !important;
+            opacity: 1 !important;
         }
+
+        /* Iconos de input group */
         .input-group-text {
             background-color: #333;
             border: 1px solid #555;
             color: #fff;
         }
-        /* Pequeño espaciado entre los inputs */
-        .mb-2 {
-            margin-bottom: 1rem !important;
-        }
+
         .is-invalid~.invalid-feedback {
             display: block;
         }
@@ -118,7 +130,7 @@
                     <div class="invalid-feedback">Las contraseñas no coinciden.</div>
                 </div>
 
-                <!-- Register button -->
+                <!-- Botón de registro -->
                 <div class="d-grid mb-3">
                     <button type="submit" class="btn btn-register btn-lg text-uppercase fw-bold"
                         id="submitBtn">Registrarse</button>
@@ -128,8 +140,6 @@
                     <p>¿Ya tienes una cuenta? <a href="/iniciosesion.html" class="text-warning">Inicia sesión</a></p>
                 </div>
             </form>
-
-      
         </div>
     </div>
 

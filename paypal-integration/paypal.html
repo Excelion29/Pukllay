@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago con PayPal - Demo</title>
+
+    <!-- PayPal SDK con el client-id de tu sandbox -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AVxw3pGNUVW9hqwv2mde-ZQjTY9Bbs53AmzG-C6Hm1VD9FO_ai-LR_r7RaljeCND89i34P_WRcRK-yx5&currency=USD"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        #paypal-button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Realiza tu pago con PayPal</h2>
+        <p>Producto: <span id="product-name">Producto de Ejemplo</span></p>
+        <p>Precio: $<span id="product-price">35.99</span> USD</p>
+        <div id="paypal-button-container"></div>
+    </div>
+
+    <script>
+        // 1. Obtener el precio dinámicamente desde el HTML
+        const productPriceElement = document.getElementById('product-price');
+        const productPrice = parseFloat(productPriceElement.textContent).toFixed(2); // 35.99
+
+        // 2. Inicializar el botón de PayPal con el monto dinámico
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            currency_code: 'USD',  // Moneda en dólares americanos
+                            value: productPrice     // Precio dinámico desde el HTML
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    alert('Pago realizado con éxito por ' + details.payer.name.given_name + '!');
+                    console.log('Detalles de la transacción:', details);
+                });
+            },
+            onError: function (err) {
+                console.error('Error en el pago:', err);
+                alert('Hubo un error al procesar el pago.');
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+
+</html>

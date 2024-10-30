@@ -15,47 +15,73 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Custom Styles -->
-    <style>
-        /* General Styles */
-        body {
-            background-color: #1b1b1b;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-        }
+<style>
+    /* General Styles */
+    body {
+        background-color: #1b1b1b;
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+    }
 
-        /* Sign In Section */
-        .sign-in-section {
-            background-color: #282828;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
+    /* Sign In Section */
+    .sign-in-section {
+        background-color: #282828;
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
 
-        /* Buttons */
-        .btn-sign-in {
-            background-color: #ff1744;
-            border: none;
-            transition: background-color 0.3s;
-        }
+    /* Botón de Iniciar Sesión */
+    .btn-sign-in {
+        background-color: #ff1744;
+        border: none;
+        transition: background-color 0.3s;
+    }
 
-        .btn-sign-in:hover {
-            background-color: #d50000;
-        }
+    .btn-sign-in:hover {
+        background-color: #d50000;
+    }
 
-        /* Form Controls */
-        .form-control {
-            background-color: #333;
-            border: 1px solid #555;
-            color: #fff;
-        }
+    /* Form Controls - Inputs */
+    .form-control {
+        background-color: #333;
+        /* Fondo oscuro */
+        border: 1px solid #555;
+        /* Borde oscuro */
+        color: #fff !important;
+        /* Texto en blanco puro */
+    }
 
-        .form-control:focus {
-            background-color: #444;
-            border-color: #ff1744;
-            box-shadow: none;
-        }
-    </style>
+    .form-control:focus {
+        background-color: #444;
+        border-color: #ff1744;
+        box-shadow: none;
+        color: #fff !important;
+        /* Asegura que el texto siga siendo blanco al enfocar */
+    }
+
+    /* Placeholder en Blanco Puro */
+    input::placeholder,
+    input::-webkit-input-placeholder,
+    input::-moz-placeholder,
+    input:-ms-input-placeholder,
+    input::-ms-input-placeholder {
+        color: #fff !important;
+        /* Forzamos blanco puro */
+        opacity: 1;
+    }
+
+    /* Asegurar que los inputs de tipo email y password se vean bien en todos los navegadores */
+    input[type="email"],
+    input[type="password"] {
+        color: #fff !important;
+    }
+</style>
+
+
+
+
+
 </head>
 
 <body>
